@@ -1,0 +1,7 @@
+1.  Build a table
+2.  process a user sign up
+	a.  compare passwords (md5)
+	b.  compare username (email)
+3.  Upload info to DB
+	a.  redirect back home to login
+

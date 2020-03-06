@@ -1,0 +1,86 @@
+* {
+    font-family: helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+header {
+    height: 50px;
+}
+
+#left-column {
+    background-color: #d1ecfb;
+    height: 100%;
+
+}
+
+h1 {
+    color: gray;
+
+
+}
+
+#right-column {
+    padding: 10px;
+
+}
+
+
+
+.container-fluid {
+	
+	   
+    
+}
+
+
+#main-page-colOne > div > div > img {
+        box-shadow: 1em 1.5em 2em rgba(136,136,136,1) ;
+}
+
+#profile-info {
+    font-family: times new roman;
+    font-style: italic;
+}
+.col-sm-6 {
+    
+
+
+}
+
+.col-sm-3 {
+}
+
+.col-sm-8 {
+
+
+}
+
+.jumbotron {
+
+
+    padding-top: 10%;
+
+}
+
+form {
+    font-family: arial;
+    font-size: 85%;
+    color: grey;
+}
+
+footer {
+    background-color: #f8f9fa;
+    height: 25px;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.message_box {
+    margin: 2px;
+    padding: 5px 10px;
+
+}

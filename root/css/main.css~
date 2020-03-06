@@ -1,0 +1,77 @@
+* {
+    font-family: helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+header {
+    height: 50px;
+}
+
+#left-column {
+    background-color: #d1ecfb;
+
+}
+
+h1 {
+    color: gray;
+
+
+}
+
+#right-column {
+    padding: 10px;
+
+}
+
+
+
+.container-fluid {
+	
+	   
+    
+}
+
+.col-sm-6 {
+    border: 1px solid lightgrey;
+
+
+}
+
+.col-sm-3 {
+    border: 1px solid lightgrey;
+}
+
+.col-sm-8 {
+
+    border: 1px solid lightgrey;
+}
+
+.jumbotron {
+
+
+    padding-top: 10%;
+
+}
+
+form {
+    font-family: arial;
+    font-size: 85%;
+    color: grey;
+}
+
+footer {
+    background-color: #f8f9fa;
+    height: 25px;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.message_box {
+    margin: 2px;
+    padding: 5px 10px;
+
+}

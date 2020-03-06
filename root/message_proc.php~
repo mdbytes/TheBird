@@ -1,0 +1,42 @@
+<?php require('library/session.inc'); ?>
+<?php    
+                    $connect = mysqli_connect("127.0.0.1","root","root","the_bird","3308");
+                    ?>
+
+<?php
+
+if (!isset($_POST)) {
+    header('location: user.php');
+} else {
+
+echo 'Hello<br>';
+
+print_r($_POST);
+
+$message = addslashes($_POST['message']);
+    
+$user_num = $_POST['user_num'];
+    
+    $message_path = 'message_img/'.$_FILES['message_img']['name'];
+    $image_size = $_FILES['message_img']['size'];
+    
+    move_uploaded_file($_FILES['message_img']['tmp_name'],$message_path);
+    
+    
+    $query = "INSERT INTO messages (user_num, message, message_path,time_date) VALUES ('$user_num','$message','$message_path',CURRENT_TIMESTAMP)";
+    
+    $result = mysqli_query($connect,$query);
+    
+    if (!$result) {
+        echo 'uh oh';
+        
+        
+    } else {
+
+    header('location: user.php');
+    }
+}
+
+
+
+?>
