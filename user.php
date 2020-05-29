@@ -4,16 +4,15 @@
 
 <body>
 
-    <main class="container-fluid">
+    <main id="user-page" class="container-fluid">
 
         <div class="row">
-            <div class="col-sm-3">
-                <div style="padding:3%;">
-                    <h3 style="width:100%;text-align:center;">User Profile:</h3>
+            <div id="user-page-colOne" class="col-sm-3">
+                <div>
+                    <div style="font-weight:bold;width:100%;text-align:center;">Profile:</div>
                     <?php    
-                    $connect = mysqli_connect("127.0.0.1","root","","the_bird","3308");
-                    ?>
-                    <?php 
+                    
+                    require('library/connect.inc');
                     
                     $test = $_SESSION['email_one'];
                     $query = "SELECT * FROM users WHERE email_one = '$test'";
@@ -27,27 +26,31 @@
                     } else {
                         
                         $row = mysqli_fetch_array($result);
-                        echo '<div style="width:100%;text-align:center;">';
+                        echo '<div id="profile-info" style="width:100%;text-align:center;">';
                         if (trim($row['image_path']) === "avi/") {
-                                    echo '<img src="avi/not_pictured.png" height="200" width="200"><br>';
+                                    echo '<img src="avi/not_pictured.png" height="150" width="150"><br>';
                         } else {
                                    echo '<img src=';
                         echo $row['image_path'];
-                        echo ' height = "200" width = "200">'.'<br>';
+                        echo ' height = "150" width = "150">'.'<br>';
                         }
-                        
+                        echo '<br>';
                         echo  $row['fname'].' '.$row['lname'].'<br>';
-                        echo  $row['city'].' '.$row['state'].'<br>';
+                        echo  $row['city'].', '.$row['state'].'<br>';
                         echo '</div>';
                             
                     }
+                    
                     ?>
+                    <form method="post" action="log_out.php" style="text-align:center;">
+                        <button type="submit" class="btn btn-primary" style="margin-top:1em;">Log Out</button>
+                    </form>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div id="user-page-colTwo" class="col-sm-6">
                 <div style="padding:3%;">
-                <img src="images/bird-background.png" width="20%" style="float:left;">
-                 <p style="font-family: 'Chewy', cursive;font-size:200%;color:gray;width:60%; float:left;margin-top:2em;margin-left:2em;">Join your friends, get chirping today...</p>
+                    <img src="images/bird-background.png" width="20%" style="float:left;">
+                    <p style="font-family: 'Chewy', cursive;font-size:200%;color:gray;width:60%; float:left;margin-top:2em;margin-left:2em;">Get chirping today...</p>
                     <form method="post" enctype='multipart/form-data' action="message_proc.php">
                         <div class="form-group" style="clear:both;">
                             <label for="exampleFormControlTextarea1">Your Chirp Here:</label>
@@ -76,21 +79,25 @@
                             echo 'Error retrieving messages';
                         } else {
                             WHILE ($row = mysqli_fetch_array($result)) {
-                                echo '<div class="message_box">';
                                 echo '<hr width="90%" style="clear:both;">';
                                 
                                 if (trim($row['image_path']) === "avi/") {
-                                    echo '<h5>User:</h5><img src="avi/not_pictured.png" height="50" width="50"><br>';
+                                    echo '<div class="user-image">';
+                                    echo '<img src="avi/not_pictured.png" height="100" width="100"><br>';
                                 } else {
-                                    echo '<h5>User:</h5><img src='.$row['image_path'].' height="50" width="50"><br>';
+                                    echo '<div class="user-image">';
+                                    echo '<img src='.$row['image_path'].' height="100" width="100"><br>';
+                                    
                                 }
-                                echo  $row['fname'].' '.$row['lname'].'<br>';
-                                echo '<p>'.stripslashes($row['message']).'</p>';
+                                echo '<h4>'.$row['fname'].' '.$row['lname'].'</h4>';
+                                echo '</div>';
+                                echo '<div class="message-content">';
+                                echo '<br><p>'.stripslashes($row['message']).'</p>';
                                 if (trim($row['message_path']) === "message_img/") {
                                     /* echo 'no pic'; */
                                 } else {
                                     echo '<a href="'.$row['message_path'].'" data-featherlight="'.$row['message_path'].'">';
-                                    echo '<img src="'.$row['message_path'].'" alt="message pic" height="200" width="200" class="message_pic">';
+                                    echo '<img src="'.$row['message_path'].'" alt="message pic" class="message_pic">';
                                     echo '</a>';
                                 }
                                 echo '</div>';
@@ -100,14 +107,14 @@
                         
                         ?>
                     </div>
-
                 </div>
+
             </div>
-            <div class="col-sm-3">
-                <div class="row" style="padding:10%;">
+            <div id="user-page-colThree" class="col-sm-3">
+                <div id='hashtags' class="row" style="margin: 10%; padding:10%; background-color: white;border: 1px solid black; border-radius: 10px;">
                     <h3 style="width:100%;text-align:center;">Hashtags</h5><br>
-                    <?php
-                    $query = "SELECT message FROM messages";
+                        <?php
+                    $query = "SELECT * FROM messages JOIN users ON messages.user_num = users.user_num";
                     $result = mysqli_query($connect,$query);
                     
                     IF (!$result) {
@@ -124,12 +131,15 @@
                                 
                             
                                 $string = explode(' ',$row['message']);
-                              	echo '<div style="width:70%;text-align:left;margin:0 auto;">';
+                              	echo '<div style="width:90%;text-align:left;margin:0 auto;">';
                                 FOR ($x=0; $x < count($string); $x++) {
                                     if (!preg_match_all('/#(\w+)/',$string[$x])) {
                                     } else {
-                                        echo $string[$x];
+                                        
+                                        echo '<a href="#" data-featherlight="<p>'.$row['message'].'</p>">'.$string[$x].'</a>';
                                         echo '<br>';
+                                      
+                                        
                                     }
                                 }
                                 echo '</div>';
@@ -144,10 +154,10 @@
 
 
                 </div>
-                <div class="row" style="padding:10%;">
-                
+                <div class="row" style="margin: 10%; padding:10%; background-color: white;border: 1px solid black; border-radius: 10px;">
+
                     <h3 style="width:100%;text-align:center;">Who to follow</h3>
-                    
+
                     <?php 
                     $query = "SELECT * FROM users ORDER BY RAND() LIMIT 4";
                     
@@ -184,7 +194,7 @@
                     
                     
 							?>
-							
+
 
 
 
@@ -199,12 +209,4 @@
 
     </main>
 
-
-
-
     <?php require('library/footer.inc'); ?>
-
-    <?php
-print($_SESSION['email_one']); 
-
-?>

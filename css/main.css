@@ -1,0 +1,185 @@
+* {
+    font-family: helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    height: 50px;
+}
+
+#left-column {
+    background-color: #d1ecfb;
+    height: 100vh;
+}
+
+h1 {
+    color: gray;
+}
+
+#right-column {
+    padding: 10px;
+
+    height: 100vh;
+}
+
+#main-page-colOne {
+    background-color: #d1ecfb;
+}
+
+
+#main-page-colOne > div > div > img {
+    box-shadow: 1em 1.5em 2em rgba(136, 136, 136, 1);
+    border-radius: 10px;
+}
+
+.user-image img {
+    box-shadow: 1em 1.5em 2em rgba(136, 136, 136, 1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#profile-info {
+    font-family: times new roman;
+    font-style: italic;
+}
+
+.col-sm-6 {}
+
+.col-sm-3 {}
+
+.col-sm-8 {}
+
+.jumbotron {
+
+
+    padding-top: 10%;
+
+}
+
+form {
+    font-family: arial;
+    font-size: 85%;
+    color: grey;
+}
+
+footer {
+    background-color: #f8f9fa;
+    height: 25px;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.message_box {
+    margin: 2px;
+    padding: 5px 10px;
+
+}
+
+
+#user-page-colOne {
+    background-color: #afdcf6;
+
+
+
+}
+
+#user-page-colOne {
+    width: 23%;
+
+}
+
+#user-page-colTwo {
+    width: 50%;
+
+}
+
+#user-page-colThree {
+    width: 23%;
+
+}
+
+
+#user-page-colOne > div {
+    padding: 3%;
+    background-color: white;
+    margin: 25px 0 25px 0;
+    border: 1px solid black;
+    border-radius: 10px;
+    "
+
+}
+
+
+
+
+
+#profile-info > img {
+    box-shadow: 1em 1.5em 2em rgba(136, 136, 136, 1);
+    border-radius: 10px;
+}
+
+#user-page-colTwo {
+    background-color: #F6F6F6;
+    min-width: 400px;
+}
+
+#user-page-colTwo > div > div.timeline > img {
+    box-shadow: 1em 1.5em 2em rgba(136, 136, 136, 1);
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+#user-page-colTwo > div > img {}
+
+.user-image {
+    margin-bottom: 15px;
+}
+
+.timeline {
+    padding: 15px;
+}
+
+.message-content {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border: #F6F6F6;
+    border-radius: 10px;
+}
+
+.message-content img {
+    width: 100%;
+    height: auto;
+}
+
+#user-page-colThree {
+    background-color: #afdcf6;
+    margin: 0px;
+    padding: 0px;
+    min-width: 400px;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    ...
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    ...
+}
+
+@media (max-width: 1050px) {
+    #user-page-colOne {
+        width: 30%;
+    }
+
+    #user-page-colTwo {
+        width: 70%;
+    }
+
+}

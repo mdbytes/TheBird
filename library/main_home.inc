@@ -1,14 +1,8 @@
 <body>
 
-    <main class="container-fluid">
+    <main id="home-page" class="container-fluid">
 
         <div class="row">
-        
-            <script>
-                   
-						document.getElementById("left-column").style.height = screen.height;
-				</script>        
-        
         
         
         
@@ -109,7 +103,7 @@
                             <div class="form-group col-md-6">
                             &nbsp;
                                 <label style="color:#007bff;font-weight:700;">Upload profile photo</label>
-                                <input type="file" class="form-control" id="user_image" name="my_image">
+                                <input type="file" class="form-control" name="my_image">
                             </div>
                         </div>
                       
