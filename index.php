@@ -1,9 +1,34 @@
+<?php
+
+use app\controllers\SiteNavigation;
+use app\controllers\UserController;
+
+require_once "vendor/autoload.php";
+require_once "app/config/constants.php";
+session_start();
+if($_SESSION['email_one'] == null) {
+    $_SESSION['email_one'] = "";
+}
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 
-<?php require('library/head_sec.inc'); ?>
-<?php require('library/nav.inc'); ?>
-<?php require('library/main_home.inc'); ?>
-<?php require('library/footer.inc'); ?>
+<?php require('app/views/layout/head_sec.inc'); ?>
+
+<body>
+<?php require('app/views/layout/nav.inc'); ?>
+<?php
+$page = new SiteNavigation();
+$action = $_GET["action"] ?? "";
+$page->navigate($action);
+
+?>
+
+
+<?php
+require 'app/views/layout/footer.php';
+?>
+
+</body>
 
 </html>
