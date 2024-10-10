@@ -6,8 +6,10 @@ use app\controllers\UserController;
 require_once "vendor/autoload.php";
 require_once "app/config/constants.php";
 session_start();
+
 if($_SESSION['email_one'] == null) {
     $_SESSION['email_one'] = "";
+    session_regenerate_id(true);
 }
 ?>
 <!DOCTYPE html>
